@@ -8,10 +8,13 @@ public class Enemigo : MonoBehaviour
 
 
     private NavMeshAgent agent;
-    [SerializeField] private GameObject player;
+    [SerializeField] private FirstPerson player;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        player = GameObject.FindObjectOfType<FirstPerson>();
+        
     }
 
     
