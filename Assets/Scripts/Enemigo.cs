@@ -74,6 +74,7 @@ public class Enemigo : MonoBehaviour
         //hacer evento fin ataque y ponerle la condicion
         agent.isStopped= false;
         anim.SetBool("attacking", false);
+        danhoRealizado = false;
 
     }
     private void AbrirVentanaAtaque()
