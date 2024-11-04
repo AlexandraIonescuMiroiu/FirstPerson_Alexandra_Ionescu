@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Enemigo : MonoBehaviour
 {
-
+    private bool danhoRealizado = false;
     [SerializeField] private float danhoAtaque;
     private NavMeshAgent agent;
     [SerializeField] private FirstPerson player;
@@ -29,7 +29,7 @@ public class Enemigo : MonoBehaviour
     void Update()
     {
         Perseguir();
-        if (ventanaAbierta)
+        if (ventanaAbierta &&  danhoRealizado ==false)
         {
             DetectarJugador();
         }
@@ -44,8 +44,9 @@ public class Enemigo : MonoBehaviour
             for (int i = 0; i < collsDetectados.Length; i++)
             {
                 collsDetectados[i].GetComponent<FirstPerson>().RecibirDanho(danhoAtaque);
-
+               
             }
+            danhoRealizado = true;
         }
 
     }
