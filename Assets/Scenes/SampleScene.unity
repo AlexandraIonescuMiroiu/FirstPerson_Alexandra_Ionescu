@@ -493,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482418027}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ojos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 703544528}
   - component: {fileID: 703544527}
   - component: {fileID: 703544526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,6 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10cd43f98e920b24c994b27e483b8c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidas: 100
   velocidadMovimiento: 5
 --- !u!1 &832575517
 GameObject:
@@ -730,7 +731,7 @@ GameObject:
   - component: {fileID: 907800087}
   - component: {fileID: 907800086}
   - component: {fileID: 907800085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: er
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,6 +824,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907800083}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1126852011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126852012}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1126852012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126852011}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.319, z: 0.827}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4641954124144943823}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154207953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1141,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2456821342584563996, guid: 3485120bf6171d9408fd8a3619181c46,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 703544528}
+    - target: {fileID: 2456821342584563996, guid: 3485120bf6171d9408fd8a3619181c46,
+        type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1126852012}
+    - target: {fileID: 2456821342584563996, guid: 3485120bf6171d9408fd8a3619181c46,
+        type: 3}
+      propertyPath: danhoAtaque
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456821342584563996, guid: 3485120bf6171d9408fd8a3619181c46,
+        type: 3}
+      propertyPath: radioAtaque
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456821342584563996, guid: 3485120bf6171d9408fd8a3619181c46,
+        type: 3}
+      propertyPath: queEsDanhable.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2946224667008424243, guid: 3485120bf6171d9408fd8a3619181c46,
         type: 3}
       propertyPath: m_Acceleration
@@ -1171,9 +1228,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7880137146543656535, guid: 3485120bf6171d9408fd8a3619181c46,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1126852012}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3485120bf6171d9408fd8a3619181c46, type: 3}
+--- !u!4 &4641954124144943823 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7880137146543656535, guid: 3485120bf6171d9408fd8a3619181c46,
+    type: 3}
+  m_PrefabInstance: {fileID: 4641954124144943821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

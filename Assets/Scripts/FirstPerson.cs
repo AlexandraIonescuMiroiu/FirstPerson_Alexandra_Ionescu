@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirstPerson : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    [SerializeField] private float vidas;
     [SerializeField] private float velocidadMovimiento;
     CharacterController controller;
 
@@ -43,12 +43,18 @@ public class FirstPerson : MonoBehaviour
 
 
 
-
-
-
     }
 
+    public void RecibirDanho( float danhoRecibido)
+    {
+        vidas -= danhoRecibido;
+        if(vidas <= 0)
+        {
+            Destroy(gameObject);
+        }
 
+    }
+   
 
 
 
