@@ -16,6 +16,9 @@ public class Enemigo : MonoBehaviour
     [SerializeField] private float radioAtaque;
     [SerializeField] private LayerMask queEsDanhable;
 
+    [SerializeField] public float RecibirDanho;
+
+    [SerializeField] private float vidas;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -65,6 +68,18 @@ public class Enemigo : MonoBehaviour
             agent.isStopped = false;
             anim.SetBool("attacking", true);
         }
+    }
+    public void RecibirDanho(float danhoRecibido)
+    {
+
+        vidas -= danhoRecibido;
+        if(vidas <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
+
+
     }
 
     #region Eventos de animacion
