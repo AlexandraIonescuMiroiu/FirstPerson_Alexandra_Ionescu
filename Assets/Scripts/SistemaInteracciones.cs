@@ -24,16 +24,15 @@ public class SistemaInteracciones : MonoBehaviour
                interactuableActual= hit.transform;
                interactuableActual.GetComponent<Outline>().enabled = true;
             }
-            else if (interactuableActual)
-            {
-                interactuableActual.GetComponent<Outline>().enabled = false;
-                interactuableActual = null;
-
-            }
+            
 
         }
+        else if (interactuableActual) // si tenia un interactuable pero ya no lo apago y despues lo anulo.
+        {
+            interactuableActual.GetComponent<Outline>().enabled = false;
+            interactuableActual = null;
 
-
+        }
 
     }
 }
