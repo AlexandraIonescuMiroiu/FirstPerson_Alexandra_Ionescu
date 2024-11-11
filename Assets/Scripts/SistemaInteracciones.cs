@@ -7,6 +7,7 @@ public class SistemaInteracciones : MonoBehaviour
 
     private Camera cam;
     [SerializeField] private float distanciaInteraccion;
+    private Transform interactuableActual;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,14 @@ public class SistemaInteracciones : MonoBehaviour
         {
             if (hit.transform.CompareTag("CajaMunicion"))
             {
-                Debug.Log("La caja");
+               interactuableActual= hit.transform;
+               interactuableActual.GetComponent<Outline>().enabled = true;
+            }
+            else if (interactuableActual)
+            {
+                interactuableActual.GetComponent<Outline>().enabled = false;
+                interactuableActual = null;
+
             }
 
         }
