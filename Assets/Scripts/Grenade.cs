@@ -4,47 +4,59 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private Rigidbody rb;
     [SerializeField] private float fuerzaImpulso;
     [SerializeField] private float tiempoVida;
     [SerializeField] private LayerMask queEsDanhable;
     [SerializeField] private float radioExplosion;
-    [SerializeField] private GameObject grenadePrefab;
     [SerializeField] private GameObject explosionPrefab;
+    private Camera cam;
+
     void Start()
     {
-        GetComponent<Rigidbody>().AddForce(transform.forward.normalized * fuerzaImpulso);
-        Destroy(gameObject, tiempoVida);
+        cam = Camera.main;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (cam != null)
+        {
+            Vector3 direction = cam.transform.forward;
+            rb.AddForce(direction * fuerzaImpulso, ForceMode.Impulse);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        tiempoVida -= Time.deltaTime;
+
+        if (tiempoVida < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    
-    private void OnDestroy()
+    void OnDestroy()
     {
-        Instantiate(explosionPrefab,transform.position, Quaternion.identity);
-
-        Debug.Log("Me voy de este mundo :(");
-        
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
         Collider[] collsDetectados = Physics.OverlapSphere(transform.position, radioExplosion, queEsDanhable);
 
-        if(collsDetectados.Lenght > 0)
+        if (collsDetectados.Length > 0)
         {
             foreach (Collider coll in collsDetectados)
             {
-                coll.GetComponent<ParteDeEnemigo>().Explotar();
-                coll.GetComponent<Rigidbody>().AddExplosionForce(10, transform.position, radioExplosion, 3.5f, ForceMode.Impulse);
-               
+                EnemyPart enemyPart = coll.GetComponent<EnemyPart>();
+                if (enemyPart != null)
+                {
+                    enemyPart.Explotar();
+                }
+
+                Rigidbody rb = coll.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = false;
+                    rb.AddExplosionForce(50, transform.position, radioExplosion, 3.5f, ForceMode.Impulse);
+                }
             }
         }
-        
-
-
     }
 }

@@ -6,31 +6,23 @@ using UnityEngine.AI;
 public class EnemyPart : MonoBehaviour
 {
 
-    [SerializeField] private Enemigo mainScript;
+    [SerializeField] private Enemigo enemyObject;
     [SerializeField] private float multiplicadorDanho;
 
-
-    // Start is called before the first frame update
     public void RecibirDanho(float danhoRecibido)
     {
-
-        mainScript.Vidas -= (danhoRecibido * multiplicadorDanho);
-        if (mainScript.Vidas <= 0)
+        Debug.Log("Enemy Life: " + enemyObject.Vidas);
+        enemyObject.Vidas -= (danhoRecibido * multiplicadorDanho);
+        if (enemyObject.Vidas <= 0)
         {
-            mainScript.Morir();
-           
-
+            enemyObject.Morir();
         }
-
-
-
     }
+
     public void Explotar()
     {
-        mainScript.GetComponent<Animator>().enabled = false;
-        mainScript.GetComponent<NavMeshAgent>().enabled = false;
-        mainScript.enabled = false;
-
-
+        enemyObject.GetComponent<Animator>().enabled = false;
+        enemyObject.GetComponent<NavMeshAgent>().enabled = false;
+        enemyObject.enabled = false;
     }
 }

@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class Bazoca : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Referencias
     [SerializeField] private GameObject grenadePrefab;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private float cadenciaDisparo = 2.5f;
+    private float timer;
+
     void Start()
     {
-        
-
-
-
+        timer = cadenciaDisparo;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (this.gameObject.activeSelf == false)
         {
-            Instantiate(grenadePrefab, spawnPoint.position, spawnPoint.rotation);
-            Debug.Break();
-
+            return;
         }
 
-        
+        timer += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && timer >= cadenciaDisparo)
+        {
+            Disparar();
+            timer = 0;
+        }
+    }
+
+    void Disparar()
+    {
+        Instantiate(grenadePrefab, spawnPoint.position, this.transform.rotation);
     }
 }

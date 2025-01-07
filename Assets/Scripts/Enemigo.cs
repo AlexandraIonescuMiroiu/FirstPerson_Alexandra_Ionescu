@@ -17,129 +17,115 @@ public class Enemigo : MonoBehaviour
     [SerializeField] private LayerMask queEsDanhable;
     private Rigidbody[] huesos;
 
-    //[SerializeField] public float RecibirDanho;
-
     [SerializeField] private float vidas;
 
+    private float timeBetweenAtacks = 1f;
+    private float timeNextAttack = 0f;
     public float Vidas { get => vidas; set => vidas = value; }
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
         player = GameObject.FindObjectOfType<FirstPerson>();
-
         anim = GetComponent<Animator>();
-
         huesos = GetComponentsInChildren<Rigidbody>();
 
         CambiarEstadoHuesos(true);
     }
 
-
     void Update()
     {
         Perseguir();
-        if (ventanaAbierta && danhoRealizado == false)
+
+        if (ventanaAbierta)
         {
             DetectarJugador();
         }
-
     }
 
     private void DetectarJugador()
     {
-        Collider[] collsDetectados = Physics.OverlapSphere(attackPoint.position, radioAtaque, queEsDanhable);
-        if (collsDetectados.Length > 0)
+        if (Time.time >= timeNextAttack)
         {
-            for (int i = 0; i < collsDetectados.Length; i++)
+            Collider[] collsDetectados = Physics.OverlapSphere(attackPoint.position, radioAtaque, queEsDanhable);
+            if (collsDetectados.Length > 0)
             {
-                collsDetectados[i].GetComponent<FirstPerson>().RecibirDanho(danhoAtaque);
-
+                for (int i = 0; i < collsDetectados.Length; i++)
+                {
+                    if (collsDetectados[i].tag == "Player")
+                    {
+                        collsDetectados[i].GetComponent<FirstPerson>().RecibirDanho(danhoAtaque);
+                        Debug.Log("Danho realizado: " + danhoAtaque);
+                    }
+                    timeNextAttack = Time.time + timeBetweenAtacks;
+                }
+                danhoRealizado = true;
             }
-            danhoRealizado = true;
         }
-
     }
 
     private void Perseguir()
     {
+        if (player == null || agent == null || !agent.isOnNavMesh)
+        {
+            return;
+        }
+
+        // Solo realiza la persecución si el agente está en un NavMesh
         agent.SetDestination(player.transform.position);
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             agent.isStopped = true;
-
+            anim.SetBool("Attack", true);
+            EnfocarPlayer();
         }
         else
         {
             agent.isStopped = false;
-            anim.SetBool("attacking", true);
-            EnfocarPlayer();
         }
     }
 
     private void EnfocarPlayer()
     {
-        Vector3 direccionAPlayer = (player.transform.position -transform.position).normalized;
+        Vector3 direccionAPlayer = (player.transform.position - this.gameObject.transform.position).normalized;
         direccionAPlayer.y = 0;
-
-        transform.rotation =Quaternion.LookRotation(direccionAPlayer);
-
-
-
+        transform.rotation = Quaternion.LookRotation(direccionAPlayer);
     }
-
-
-
 
     #region Eventos de animacion
-    //Evento de animacion
     private void FinAtaque()
     {
-        //hacer evento fin ataque y ponerle la condicion
         agent.isStopped = false;
-        anim.SetBool("attacking", false);
+        anim.SetBool("Attack", false);
         danhoRealizado = false;
-
     }
+
     private void AbrirVentanaAtaque()
     {
-        //abrir ventana ataque y cerrarla
-
         ventanaAbierta = true;
-
     }
+
     private void CerrarVentanaAtaque()
     {
-
         ventanaAbierta = false;
-
     }
-    
+    #endregion
+
     public void Morir()
     {
         CambiarEstadoHuesos(false);
         agent.enabled = false;
         anim.enabled = false;
-        Destroy(gameObject,10);
-
+        Debug.Log("Muerto");
+        Destroy(gameObject, 5);
     }
+
     private void CambiarEstadoHuesos(bool estado)
     {
-
         for (int i = 0; i < huesos.Length; i++)
         {
             huesos[i].isKinematic = estado;
         }
     }
-
-
-
-
-
-    #endregion
-
-
-
 }
