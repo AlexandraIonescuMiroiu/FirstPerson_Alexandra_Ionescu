@@ -11,7 +11,7 @@ public class Enemigo : MonoBehaviour
     private NavMeshAgent agent;
     [SerializeField] private FirstPerson player;
     private Animator anim;
-    private bool ventanaAbierta;
+    private bool ventanaAbierta = true;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float radioAtaque;
     [SerializeField] private LayerMask queEsDanhable;
@@ -29,8 +29,12 @@ public class Enemigo : MonoBehaviour
         player = GameObject.FindObjectOfType<FirstPerson>();
         anim = GetComponent<Animator>();
         huesos = GetComponentsInChildren<Rigidbody>();
-
+        for (int i = 0; i < huesos.Length; i++)
+        {
+            huesos[i].isKinematic = true;
+        }
         CambiarEstadoHuesos(true);
+
     }
 
     void Update()
@@ -79,10 +83,6 @@ public class Enemigo : MonoBehaviour
             agent.isStopped = true;
             anim.SetBool("Attack", true);
             EnfocarPlayer();
-        }
-        else
-        {
-            agent.isStopped = false;
         }
     }
 
