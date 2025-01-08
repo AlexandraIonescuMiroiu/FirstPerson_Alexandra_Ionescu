@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Bazoca : MonoBehaviour
 {
-    // Referencias
+    [SerializeField] private TMP_Text actualAmmoText;
     [SerializeField] private GameObject grenadePrefab;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private float cadenciaDisparo = 2.5f;
+    public ArmaSO misDatos;
     private float timer;
 
     void Start()
     {
-        timer = cadenciaDisparo;
+        timer = misDatos.cadenciaAtaque;
     }
 
     void Update()
@@ -23,8 +24,11 @@ public class Bazoca : MonoBehaviour
         }
 
         timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && timer >= cadenciaDisparo)
+        if (Input.GetMouseButtonDown(0) && timer >= misDatos.cadenciaAtaque && misDatos.balasCargador > 0)
         {
+            misDatos.balasCargador--;
+            actualAmmoText.text = misDatos.balasCargador.ToString();
+            Debug.Log("Disparo con " + misDatos.balasCargador + " balas.");
             Disparar();
             timer = 0;
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FirstPerson : MonoBehaviour
 {
@@ -11,10 +12,14 @@ public class FirstPerson : MonoBehaviour
     CharacterController controller;
     [SerializeField] private float radiusDetection = 0.4f;
 
+    [SerializeField]
+    private TMP_Text lifeText;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
+        lifeText.text = vidas.ToString();
     }
 
     void Update()
@@ -42,6 +47,7 @@ public class FirstPerson : MonoBehaviour
     {
         vidas -= danhoRecibido;
         Debug.Log("Life: " + vidas);
+        lifeText.text = vidas.ToString();
         if (vidas <= 0)
         {
             Destroy(gameObject);

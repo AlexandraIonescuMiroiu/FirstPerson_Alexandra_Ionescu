@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,15 +10,21 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     private int hordeNumber = 1;
-    private int enemiesDead = 0;
+    public int enemiesDead = 0;
 
     [SerializeField]
-    private int maxHordeToWin = 5;
+    private int maxHordeToWin = 3;
 
     [SerializeField]
     private int maxCoordenateToSpawnEnemy = 25;
     [SerializeField]
     private float spawnStartInterval = 3f;
+
+    [SerializeField]
+    private TMP_Text roundText;
+
+    [SerializeField]
+    private int intensitySpawnEnemies = 2;
 
     private void Awake()
     {
@@ -32,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        roundText.text = "Round: " + hordeNumber;
         StartCoroutine(SpawnEnemyRoutine());
     }
 
@@ -93,7 +101,7 @@ public class GameManager : MonoBehaviour
         while (hordeNumber <= maxHordeToWin)
         {
             float interval = 3f - (hordeNumber * 0.5f);
-            int enemiesToSpawn = 5 + (hordeNumber * 2);
+            int enemiesToSpawn = intensitySpawnEnemies + (hordeNumber * 2);
             Debug.Log($"Horda {hordeNumber}: {enemiesToSpawn} enemigos aparecerán cada {interval} segundos.");
 
             enemiesDead = 0;
@@ -109,11 +117,17 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
 
+            if (hordeNumber == maxHordeToWin)
+            {
+                WinGame();
+            }
+
+            enemiesDead = 0;
             hordeNumber++;
-            Debug.Log($"Horda {hordeNumber - 1} completada.");
+            roundText.text = "Round: " + hordeNumber;
             yield return new WaitForSeconds(2f);
         }
 
-        Debug.Log("Has superado las 5 hordas!");
+        Debug.Log("Has superado las " + maxHordeToWin + " hordas!");
     }
 }

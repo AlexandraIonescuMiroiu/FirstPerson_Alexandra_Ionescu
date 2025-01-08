@@ -2,12 +2,14 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ArmaAutomatica : MonoBehaviour
 {
+    [SerializeField] private TMP_Text actualAmmoText;
     private Camera cam;
     [SerializeField] private ParticleSystem system;
-    [SerializeField] private ArmaSO misDatos;
+    public ArmaSO misDatos;
     private float timer;
 
     void Start()
@@ -25,11 +27,15 @@ public class ArmaAutomatica : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (Input.GetMouseButton(0) && timer >= misDatos.cadenciaAtaque)
+        if (Input.GetMouseButton(0) && timer >= misDatos.cadenciaAtaque && misDatos.balasCargador > 0)
         {
             timer = 0;
 
             system.Play();
+
+            misDatos.balasCargador--;
+            actualAmmoText.text = misDatos.balasCargador.ToString();
+            Debug.Log("Disparo con " + misDatos.balasCargador + " balas.");
 
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitinfo, misDatos.distanciaAtaque))
             {

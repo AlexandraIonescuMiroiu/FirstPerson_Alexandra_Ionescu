@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e0279afe69ee84390944a778ef3ae9, type: 3}
   m_Name: Pistola
   m_EditorClassIdentifier: 
-  balasCargador: 7
+  balasCargador: 6
   balasBolsa: 40
   distanciaAtaque: 500
-  danhoAtaque: 25
+  danhoAtaque: 5
   cadenciaAtaque: 0.5

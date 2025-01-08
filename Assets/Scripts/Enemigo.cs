@@ -19,7 +19,7 @@ public class Enemigo : MonoBehaviour
 
     [SerializeField] private float vidas;
 
-    private float timeBetweenAtacks = 1f;
+    [SerializeField] private float timeBetweenAtacks = 1f;
     private float timeNextAttack = 0f;
     public float Vidas { get => vidas; set => vidas = value; }
 
@@ -119,6 +119,7 @@ public class Enemigo : MonoBehaviour
         anim.enabled = false;
         Debug.Log("Muerto");
         Destroy(gameObject, 5);
+        GameManager.Instance.enemiesDead++;
     }
 
     private void CambiarEstadoHuesos(bool estado)
