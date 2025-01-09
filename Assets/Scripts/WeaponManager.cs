@@ -6,6 +6,10 @@ using TMPro;
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text actualAmmoText;
+    [SerializeField] private TMP_Text rechargedText;
+    [SerializeField] private float timerToDespawnTextRecharged;
+    private float currentTimerToDespawnTextRecharged;
+
     private GameObject currentWeapon;
 
     [Header("Weapons")]
@@ -28,6 +32,9 @@ public class WeaponManager : MonoBehaviour
         {
             Debug.LogError("Weapons not assigned in the Inspector!");
         }
+
+        currentTimerToDespawnTextRecharged = timerToDespawnTextRecharged;
+        RefillAllAmmo(true);
     }
 
     void Update()
@@ -40,6 +47,17 @@ public class WeaponManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SwitchWeapon(weapon2);
+        }
+
+        if (currentTimerToDespawnTextRecharged < -10f)
+        {
+            return;
+        }
+
+        currentTimerToDespawnTextRecharged -= Time.deltaTime;
+        if (currentTimerToDespawnTextRecharged <= 0)
+        {
+            rechargedText.gameObject.SetActive(false);
         }
     }
 
@@ -75,5 +93,19 @@ public class WeaponManager : MonoBehaviour
         }
 
         actualAmmoText.text = "N/A";
+    }
+
+    public void RefillAllAmmo(bool firstLoadingGame = false)
+    {
+        weapon1.GetComponent<ArmaAutomatica>().misDatos.balasCargador = weapon1.GetComponent<ArmaAutomatica>().misDatos.balasBolsa;
+        weapon2.GetComponent<Bazoca>().misDatos.balasCargador = weapon2.GetComponent<Bazoca>().misDatos.balasBolsa;
+
+        if (!firstLoadingGame)
+        {
+            currentTimerToDespawnTextRecharged = timerToDespawnTextRecharged;
+            rechargedText.gameObject.SetActive(true);
+        }
+
+        UpdateAmmoText();
     }
 }

@@ -11,9 +11,13 @@ public class FirstPerson : MonoBehaviour
     [SerializeField] private float movementVelocity = 3.5f;
     CharacterController controller;
     [SerializeField] private float radiusDetection = 0.4f;
+    [SerializeField] private float jumpHeight = 3f;
 
     [SerializeField]
     private TMP_Text lifeText;
+    [SerializeField] private Transform foots;
+    [SerializeField] private float radiusDetectionGround;
+    [SerializeField] private LayerMask layerGround;
 
     void Start()
     {
@@ -41,6 +45,7 @@ public class FirstPerson : MonoBehaviour
         }
 
         ApplyGravity();
+        TouchGround();
     }
 
     public void RecibirDanho(float danhoRecibido)
@@ -58,5 +63,23 @@ public class FirstPerson : MonoBehaviour
     {
         verticalMovement.y += gravityEscale * Time.deltaTime;
         controller.Move(verticalMovement * Time.deltaTime);
+    }
+
+    private void TouchGround()
+    {
+        Collider[] collsDetectados = Physics.OverlapSphere(foots.position, radiusDetectionGround, layerGround);
+
+        if (collsDetectados.Length > 0)
+        {
+            verticalMovement.y = 0;
+            Jump();
+        }
+    }
+    private void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            verticalMovement.y = Mathf.Sqrt(-2 * gravityEscale * jumpHeight);
+        }
     }
 }

@@ -49,6 +49,8 @@ public class Enemigo : MonoBehaviour
 
     private void DetectarJugador()
     {
+        Debug.DrawRay(attackPoint.position, Vector3.up * radioAtaque, Color.blue);
+
         if (Time.time >= timeNextAttack)
         {
             Collider[] collsDetectados = Physics.OverlapSphere(attackPoint.position, radioAtaque, queEsDanhable);
