@@ -22,9 +22,11 @@ public class Enemigo : MonoBehaviour
     [SerializeField] private float timeBetweenAtacks = 1f;
     private float timeNextAttack = 0f;
     public float Vidas { get => vidas; set => vidas = value; }
+    private RoundsManager roundsManager;
 
     void Start()
     {
+        roundsManager = GameObject.FindObjectOfType<RoundsManager>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindObjectOfType<FirstPerson>();
         anim = GetComponent<Animator>();
@@ -121,7 +123,7 @@ public class Enemigo : MonoBehaviour
         anim.enabled = false;
         Debug.Log("Muerto");
         Destroy(gameObject, 5);
-        GameManager.Instance.enemiesDead++;
+        roundsManager.RegisterEnemyDeath();
     }
 
     private void CambiarEstadoHuesos(bool estado)

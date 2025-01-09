@@ -8,6 +8,7 @@ public class InterfaceManager : MonoBehaviour
 
     public void StartGame()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene("JUEGO");
     }
 

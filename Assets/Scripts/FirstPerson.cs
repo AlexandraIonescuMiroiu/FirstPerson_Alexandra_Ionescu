@@ -13,11 +13,11 @@ public class FirstPerson : MonoBehaviour
     [SerializeField] private float radiusDetection = 0.4f;
     [SerializeField] private float jumpHeight = 3f;
 
-    [SerializeField]
-    private TMP_Text lifeText;
+    [SerializeField] private TMP_Text lifeText;
     [SerializeField] private Transform foots;
     [SerializeField] private float radiusDetectionGround;
     [SerializeField] private LayerMask layerGround;
+    [SerializeField] private bool isInmortal = false;
 
     void Start()
     {
@@ -53,9 +53,10 @@ public class FirstPerson : MonoBehaviour
         vidas -= danhoRecibido;
         Debug.Log("Life: " + vidas);
         lifeText.text = vidas.ToString();
-        if (vidas <= 0)
+        if (vidas <= 0 && !isInmortal)
         {
             Destroy(gameObject);
+            GameManager.Instance.GameOver();
         }
     }
 
