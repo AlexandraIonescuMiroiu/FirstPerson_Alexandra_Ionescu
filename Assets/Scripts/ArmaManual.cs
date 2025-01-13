@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class ArmaManual : MonoBehaviour
 {
-    [SerializeField] private TMP_Text actualAmmoText;
-    public ArmaSO misDatos;
+    // Start is called before the first frame update
+    [SerializeField] ArmaSO misDatos;
     [SerializeField] ParticleSystem system;
 
     private Camera cam;
@@ -16,28 +15,24 @@ public class ArmaManual : MonoBehaviour
         cam = Camera.main;
     }
 
-  
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && misDatos.balasCargador > 0)
-        {
-            system.Play(); //Ejecutar sistema particulas
+    // Update is called once per frame
+    //void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        system.Play(); //Ejecutar sistema particulas
 
-            misDatos.balasCargador--;
-            actualAmmoText.text = misDatos.balasCargador.ToString();
-            Debug.Log("Disparo con " + misDatos.balasCargador + " balas.");
+    //        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitinfo, misDatos.distanciaAtaque))
+    //        {
+    //            if (hitinfo.transform.CompareTag("ParteEnemigo"))
+    //            {
+    //                Debug.Log(hitinfo.transform.name);
+    //                hitinfo.transform.GetComponent<ParteDeEnemigo>().RecibirDanho(misDatos.danhoAtaque);
 
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitinfo, misDatos.distanciaAtaque))
-            {
-                if (hitinfo.transform.CompareTag("EnemyPart"))
-                {
-                    Debug.Log(hitinfo.transform.name);
-                    hitinfo.transform.GetComponent<EnemyPart>().RecibirDanho(misDatos.danhoAtaque);
+    //            }
+               
+    //        }
 
-                }
-
-            }
-
-        }
-    }
+    //    }
+    //}
 }
