@@ -24,6 +24,7 @@ public class Bazoca : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+
         if (Input.GetMouseButtonDown(0) && timer >= misDatos.cadenciaAtaque && misDatos.balasCargador > 0)
         {
             misDatos.balasCargador--;

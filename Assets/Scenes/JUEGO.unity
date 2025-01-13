@@ -378,7 +378,9 @@ MonoBehaviour:
   actualAmmoText: {fileID: 1635989736}
   rechargedText: {fileID: 1246920547}
   timerToDespawnTextRecharged: 2
-  weapon1: {fileID: 8249552861243583156}
+  pistolaSO: {fileID: 11400000, guid: 8593d199d4248924cb0093a2fbb4cf6e, type: 2}
+  bazocaSO: {fileID: 11400000, guid: 746111ae25df24f4b9b55761bb47344e, type: 2}
+  weapon1: {fileID: 303714969}
   weapon2: {fileID: 4388584152937842102}
 --- !u!4 &116741822
 Transform:
@@ -481,6 +483,7 @@ GameObject:
   - component: {fileID: 145433322}
   - component: {fileID: 145433321}
   - component: {fileID: 145433320}
+  - component: {fileID: 145433324}
   m_Layer: 0
   m_Name: AmmoBox (4)
   m_TagString: CajaMunicion
@@ -501,11 +504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 116741821}
-  transformPoint: {fileID: 998048346}
-  radius: 2
-  layerIsGoingToUse:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!65 &145433321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -562,6 +560,27 @@ Transform:
   - {fileID: 1127749977}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -75.342, z: 0}
+--- !u!135 &145433324
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145433319}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2000
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &158406196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1305226267964352745, guid: e2bcfae9cd066da4faca8c712ba69ae7,
@@ -2015,6 +2034,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1153044363}
   m_SourcePrefab: {fileID: 100100000, guid: e2bcfae9cd066da4faca8c712ba69ae7, type: 3}
+--- !u!1 &303714969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6361853646667740637, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+    type: 3}
+  m_PrefabInstance: {fileID: 789049314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &303714970 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+    type: 3}
+  m_PrefabInstance: {fileID: 789049314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &319298621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,7 +2382,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 130323977}
-  - {fileID: 3640955501937443856}
+  - {fileID: 303714970}
   - {fileID: 6133310901063524758}
   m_Father: {fileID: 1329263344}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4216,6 +4247,7 @@ GameObject:
   - component: {fileID: 547709380}
   - component: {fileID: 547709379}
   - component: {fileID: 547709378}
+  - component: {fileID: 547709382}
   m_Layer: 0
   m_Name: AmmoBox (3)
   m_TagString: CajaMunicion
@@ -4236,11 +4268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 116741821}
-  transformPoint: {fileID: 774681190}
-  radius: 2
-  layerIsGoingToUse:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!65 &547709379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4297,6 +4324,27 @@ Transform:
   - {fileID: 545529053}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &547709382
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547709377}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2000
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &551578706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1138063880532436210, guid: e2bcfae9cd066da4faca8c712ba69ae7,
@@ -4541,6 +4589,7 @@ GameObject:
   - component: {fileID: 578960626}
   - component: {fileID: 578960625}
   - component: {fileID: 578960624}
+  - component: {fileID: 578960628}
   m_Layer: 0
   m_Name: AmmoBox (1)
   m_TagString: CajaMunicion
@@ -4561,11 +4610,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 116741821}
-  transformPoint: {fileID: 1660111328}
-  radius: 2
-  layerIsGoingToUse:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!65 &578960625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4622,6 +4666,27 @@ Transform:
   - {fileID: 794316210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &578960628
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578960623}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2000
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &585152147
 GameObject:
   m_ObjectHideFlags: 0
@@ -6127,6 +6192,7 @@ GameObject:
   - component: {fileID: 778101070}
   - component: {fileID: 778101069}
   - component: {fileID: 778101068}
+  - component: {fileID: 778101072}
   m_Layer: 0
   m_Name: AmmoBox (5)
   m_TagString: CajaMunicion
@@ -6147,11 +6213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 116741821}
-  transformPoint: {fileID: 2139964027}
-  radius: 2
-  layerIsGoingToUse:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!65 &778101069
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6208,6 +6269,100 @@ Transform:
   - {fileID: 749856793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -22.05, y: -31.733, z: 0}
+--- !u!135 &778101072
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778101067}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2000
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &789049314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 330585546}
+    m_Modifications:
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5286
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9983
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70708835
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70708835
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.005109258
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.005109258
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912245777294715888, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.828
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361853646667740637, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: m_Name
+      value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423473851767650322, guid: 08d8ea2275f22c846a88d4d6384bd45d,
+        type: 3}
+      propertyPath: actualAmmoText
+      value: 
+      objectReference: {fileID: 1635989736}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08d8ea2275f22c846a88d4d6384bd45d, type: 3}
 --- !u!1 &790175907
 GameObject:
   m_ObjectHideFlags: 0
@@ -6409,6 +6564,7 @@ GameObject:
   - component: {fileID: 801162770}
   - component: {fileID: 801162769}
   - component: {fileID: 801162768}
+  - component: {fileID: 801162772}
   m_Layer: 0
   m_Name: AmmoBox (6)
   m_TagString: CajaMunicion
@@ -6429,11 +6585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 116741821}
-  transformPoint: {fileID: 109248518}
-  radius: 2
-  layerIsGoingToUse:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!65 &801162769
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6491,6 +6642,27 @@ Transform:
   - {fileID: 319298622}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -31.733, z: 0}
+--- !u!135 &801162772
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801162767}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2000
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &824479366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6614866133980827860, guid: e2bcfae9cd066da4faca8c712ba69ae7,
@@ -9953,6 +10125,7 @@ GameObject:
   - component: {fileID: 1154207955}
   - component: {fileID: 1154207954}
   - component: {fileID: 1154207957}
+  - component: {fileID: 1154207958}
   m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
@@ -10073,6 +10246,19 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: f135137535c57054e8a58a3069a9105a, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1154207958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154207953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42196353a4164b9438e855898f8ae29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 2
 --- !u!1 &1160905346 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8103747842020213380, guid: e2bcfae9cd066da4faca8c712ba69ae7,
@@ -11777,6 +11963,7 @@ GameObject:
   - component: {fileID: 1510302727}
   - component: {fileID: 1510302726}
   - component: {fileID: 1510302725}
+  - component: {fileID: 1510302729}
   m_Layer: 3
   m_Name: agua
   m_TagString: Untagged
@@ -11793,7 +11980,7 @@ Transform:
   m_GameObject: {fileID: 1510302723}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 250.4, y: 96.3, z: 329.9}
+  m_LocalPosition: {x: 250.4, y: 97.8, z: 329.9}
   m_LocalScale: {x: 499.14157, y: 3.7530808, z: 165.05182}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11814,7 +12001,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -11840,7 +12027,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e12c4e50b02b8664fa6287be40aab44a, type: 2}
+  - {fileID: 2100000, guid: 52fafa321aec87a4da999ff5c839691c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11870,6 +12057,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510302723}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1510302729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510302723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42196353a4164b9438e855898f8ae29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 0
 --- !u!1 &1522050261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6614866133980827860, guid: e2bcfae9cd066da4faca8c712ba69ae7,
@@ -12260,6 +12460,7 @@ GameObject:
   - component: {fileID: 1647595699}
   - component: {fileID: 1647595698}
   - component: {fileID: 1647595697}
+  - component: {fileID: 1647595701}
   m_Layer: 0
   m_Name: AmmoBox (2)
   m_TagString: CajaMunicion
@@ -12280,11 +12481,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 116741821}
-  transformPoint: {fileID: 1771347551}
-  radius: 2
-  layerIsGoingToUse:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!65 &1647595698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12341,6 +12537,27 @@ Transform:
   - {fileID: 585152148}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1647595701
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647595696}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2000
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1660019279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7847437955045537708, guid: e2bcfae9cd066da4faca8c712ba69ae7,
@@ -15485,79 +15702,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &3052759211751964896
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 330585546}
-    m_Modifications:
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5286
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.152
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.9983
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.70708835
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.70708835
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0051103234
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0051103756
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1722016964750760971, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: actualAmmoText
-      value: 
-      objectReference: {fileID: 1635989736}
-    - target: {fileID: 8214698206148959253, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-        type: 3}
-      propertyPath: m_Name
-      value: Pistol
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 08d8ea2275f22c846a88d4d6384bd45d, type: 3}
 --- !u!4 &3295203783333433124
 Transform:
   m_ObjectHideFlags: 0
@@ -15573,12 +15717,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5006512735909944486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &3640955501937443856 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 339405100696768338, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-    type: 3}
-  m_PrefabInstance: {fileID: 3052759211751964896}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4388584152937842102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9185952769979892261, guid: 94a8c25d324811640888500592343f7c,
@@ -15808,12 +15946,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &8249552861243583156 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8214698206148959253, guid: 08d8ea2275f22c846a88d4d6384bd45d,
-    type: 3}
-  m_PrefabInstance: {fileID: 3052759211751964896}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8296172668092640949
 GameObject:
   m_ObjectHideFlags: 0
@@ -15826,6 +15958,7 @@ GameObject:
   - component: {fileID: 8296172668092640950}
   - component: {fileID: 8296172668092640951}
   - component: {fileID: 8296172668092640952}
+  - component: {fileID: 8296172668092640953}
   m_Layer: 0
   m_Name: AmmoBox
   m_TagString: CajaMunicion
@@ -15885,11 +16018,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 116741821}
-  transformPoint: {fileID: 3295203783333433124}
-  radius: 2
-  layerIsGoingToUse:
+--- !u!135 &8296172668092640953
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172668092640949}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2000
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &8587989076097451732
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private TMP_Text rechargedText;
     [SerializeField] private float timerToDespawnTextRecharged;
     private float currentTimerToDespawnTextRecharged;
+    public ArmaSO pistolaSO;
+    public ArmaSO bazocaSO;
 
     private GameObject currentWeapon;
 
@@ -97,8 +99,8 @@ public class WeaponManager : MonoBehaviour
 
     public void RefillAllAmmo(bool firstLoadingGame = false)
     {
-        weapon1.GetComponent<ArmaAutomatica>().misDatos.balasCargador = weapon1.GetComponent<ArmaAutomatica>().misDatos.balasBolsa;
-        weapon2.GetComponent<Bazoca>().misDatos.balasCargador = weapon2.GetComponent<Bazoca>().misDatos.balasBolsa;
+        pistolaSO.balasCargador = pistolaSO.balasBolsa;
+        bazocaSO.balasCargador = bazocaSO.balasBolsa;
 
         if (!firstLoadingGame)
         {

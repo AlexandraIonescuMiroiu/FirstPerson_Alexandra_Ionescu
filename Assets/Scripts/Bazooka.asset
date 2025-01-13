@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e0279afe69ee84390944a778ef3ae9, type: 3}
   m_Name: Bazooka
   m_EditorClassIdentifier: 
-  balasCargador: 2
+  balasCargador: 99
   balasBolsa: 2
   distanciaAtaque: 500
   danhoAtaque: 100
